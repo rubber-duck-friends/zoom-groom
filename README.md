@@ -1,22 +1,19 @@
 # Zoom Groom
 
 ## About
-**Zoom Groom** is a booking system that takes the complexity out of handling your dog's next grooming session. It allows both dog owners and dog groomers to set up profiles and track their appointments. Users can also save details of each of their pets to avoid filling out extra forms on repeat bookings.
+**Zoom Groom** is a booking system for Zoom Groom salon to track grooming bookings on both the business and user sides. Ideally, we would like to expand this in future to be a booking system to facilitate multiple businesses in a SaaS model.
 
 ## Functionality & Features
 Zoom Groom has several core features designed to make life easier for you and your four-legged friend:
 - Registration means you can save all of your essential details to the site to make booking your next appointment fast and painless
 - Use your account to add a profile for each of your pets and save essential information such as their name, age, breed and any special requirements your groomer might need to know about. You can also add multiple pets on your profile
-- Groomers can use Zoom Groom's booking platform as well - organise your appointments and avoid those messy double-booking situations
-- View all of your bookings online via your account in an easy-to-read format
+- The booking platform can be used by the grooming salon to organise appointments on a daily basis and allow management of appointments for multiple staff members
+- On the business side, Zoom Groom allows managers to keep track of which groomers are available each day - this means that if a client has a preferred groomer for their dog, they are able to see which days that groomer is available.
+- Client and groomers can both view bookings online via their accounts in an easy-to-read format
 
 
 ## Target Audience
-Zoom Groom is designed to be a platform for both dog owners and dog groomers to use. This versatility is enabled by the fact that both parties use the same booking system logic. Ideally, we would like to make this scalable to be used by businesses, but the current model is designed to be used by groomers who are working as sole traders or at small businesses/sole traders.
-
-Zoom Groom caters to anyone who has a dog that needs grooming! Notice that we have used the term "pets" instead of "dogs" - this is to allow the app to potentially cater to other types of animals in future.
-
-Currently, the scope of the audience is **Australia only**.
+Zoom Groom is designed to be a platform for both dog owners and dog groomers to use. This versatility is enabled by the fact that both parties use the same booking system logic. Ideally, we would like to make this scalable to be used by multiple businesses, but the current model is designed to be used by a single dog grooming business and its clients.
 
 ## Tech Stack
 
@@ -67,10 +64,11 @@ To Be Added
 ### Customer Story Sprinkles
 - As a customer I want to be able to pay for my appointments ahead of time so I can save time on the day of the appointment
 
-## Wireframes
 
 ### Site Map
 ![Site Map for Zoom Groom App](./docs/sitemap.png)
+
+## Wireframes
 
 To Be Added
 
