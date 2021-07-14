@@ -70,7 +70,8 @@ To Be Added
 
 ## Wireframes
 
-To Be Added
+### Landing Page
+![Zoom Groom landing page wireframe](./docs/wireframes/landing-page.png)
 
 ## Trello
 
