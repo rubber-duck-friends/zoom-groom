@@ -85,6 +85,9 @@ To Be Added
 ### Edit Profile
 ![Zoom Groom edit user profile wireframe](./docs/wireframes/edit-profile-page.png)
 
+### My Appointments
+![Zoom Groom view user appointments wireframe](./docs/wireframes/my-appointments.png)
+
 ## Trello
 
 You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/dog-grooming-app)
