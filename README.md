@@ -79,6 +79,9 @@ To Be Added
 ### Login Page
 ![Zoom Groom login page wireframe](./docs/wireframes/login-page.png)
 
+### User Profile
+![Zoom Groom user profile wireframe](./docs/wireframes/user-profile.png)
+
 ## Trello
 
 You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/dog-grooming-app)
