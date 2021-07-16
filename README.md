@@ -16,8 +16,12 @@ Zoom Groom has several core features designed to make life easier for you and yo
 Zoom Groom is designed to be a platform for both dog owners and dog groomers to use. This versatility is enabled by the fact that both parties use the same booking system logic. Ideally, we would like to make this scalable to be used by multiple businesses, but the current model is designed to be used by a single dog grooming business and its clients.
 
 ## Tech Stack
+The front end of Zoom Groom will be built using JavaScript and the [React Framework](https://reactjs.org/). Additionally, we will be using the [MaterialUI](https://material-ui.com/) components library for consistent, clean and accessible styling. The calendar functionality will be built off of the [React Calendar](https://www.npmjs.com/package/react-calendar) NPM package. Unit testing on the client side will be done with [Jest](https://jestjs.io/), as well as manual testing by an end user in the deployed web app. 
 
-To Be Decided
+Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in API mode, which will store our data for our customers, groomers, dogs, and appointments. For cloud storage of images uploaded by users, we will utilise [Cloudinary](https://cloudinary.com/?utm_source=google&utm_medium=cpc&utm_campaign=Rbrand&utm_content=492438439811&utm_term=cloudinary&gclid=Cj0KCQjwub-HBhCyARIsAPctr7w4UVA1_FttvY5MM9HH9vcO1B6366nN-pl_9QRWB579NCjopDaCTGMaAr6gEALw_wcB). Unit testing will be done using the [Rspec](https://github.com/rspec/rspec) gem.
+
+The final live web app will have the client deployed to [Netlify](https://www.netlify.com/) and the back end deployed to [Heroku](https://id.heroku.com/login).
+
 
 ## Dataflow Diagram
 
