@@ -25,7 +25,7 @@ The final live web app will have the client deployed to [Netlify](https://www.ne
 
 ## Dataflow Diagram
 
-To Be Added
+![Dataflow Diagram for Zoom Groom app](./docs/dfd.jpg)
 
 ## Application Architecture Diagram
 
