@@ -21,7 +21,7 @@ To Be Decided
 
 ## Dataflow Diagram
 
-![Dataflow Diagram for Zoom Groom app](./docs/dfd.jpg)
+To Be Added
 
 ## Application Architecture Diagram
 
