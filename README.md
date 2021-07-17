@@ -16,12 +16,8 @@ Zoom Groom has several core features designed to make life easier for you and yo
 Zoom Groom is designed to be a platform for both dog owners and dog groomers to use. This versatility is enabled by the fact that both parties use the same booking system logic. Ideally, we would like to make this scalable to be used by multiple businesses, but the current model is designed to be used by a single dog grooming business and its clients.
 
 ## Tech Stack
-The front end of Zoom Groom will be built using JavaScript and the [React Framework](https://reactjs.org/). Additionally, we will be using the [MaterialUI](https://material-ui.com/) components library for consistent, clean and accessible styling. The calendar functionality will be built off of the [React Calendar](https://www.npmjs.com/package/react-calendar) NPM package. Unit testing on the client side will be done with [Jest](https://jestjs.io/), as well as manual testing by an end user in the deployed web app. 
 
-Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in API mode, which will store our data for our customers, groomers, dogs, and appointments. For cloud storage of images uploaded by users, we will utilise [Cloudinary](https://cloudinary.com/?utm_source=google&utm_medium=cpc&utm_campaign=Rbrand&utm_content=492438439811&utm_term=cloudinary&gclid=Cj0KCQjwub-HBhCyARIsAPctr7w4UVA1_FttvY5MM9HH9vcO1B6366nN-pl_9QRWB579NCjopDaCTGMaAr6gEALw_wcB). Unit testing will be done using the [Rspec](https://github.com/rspec/rspec) gem.
-
-The final live web app will have the client deployed to [Netlify](https://www.netlify.com/) and the back end deployed to [Heroku](https://id.heroku.com/login).
-
+To Be Decided
 
 ## Dataflow Diagram
 
@@ -30,6 +26,9 @@ To Be Added
 ## Application Architecture Diagram
 
 ![Application Architecture for Zoom Groom app](./docs/application-architecture.png)
+
+## Entity Relationship Diagram
+![Entity Relationship Diagram for Zoom Groom app](./docs/ERD.PNG)
 
 ## User Stories
 
@@ -74,32 +73,7 @@ To Be Added
 
 ## Wireframes
 
-### Landing Page
-![Zoom Groom landing page wireframe](./docs/wireframes/landing-page.png)
-
-### Registration Page
-![Zoom Groom registration page wireframe](./docs/wireframes/sign-up-page.png)
-
-### Login Page
-![Zoom Groom login page wireframe](./docs/wireframes/login-page.png)
-
-### User Profile
-![Zoom Groom user profile wireframe](./docs/wireframes/user-profile.png)
-
-### Edit Profile
-![Zoom Groom edit user profile wireframe](./docs/wireframes/edit-profile-page.png)
-
-### My Appointments
-![Zoom Groom view user appointments wireframe](./docs/wireframes/my-appointments.png)
-
-### Appointment Details
-![Zoom Groom appointment details page wireframe](./docs/wireframes/appointment-details.png)
-
-### New Appointment
-![Zoom Groom appointment creation page wireframe](./docs/wireframes/new-appointment-page.png)
-
-### View User Pets
-![Zoom Groom view user pets page wireframe](./docs/wireframes/user-pets-page.png)
+To Be Added
 
 ### Pet Details
 ![Zoom Groom peyt details wireframe](./docs/wireframes/pet-details.png)
@@ -122,11 +96,3 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 #### July 10 2021
 ![Trello Board July 10 (1/2)](./docs/trello-july-10.png)
 ![Trello Board July 10 (2/2)](./docs/trello-july-10(2).png)
-
-#### July 12 2021
-![Trello Board July 12 (1/2)](./docs/trello-july-12.png)
-![Trello Board July 12 (2/2)](./docs/trello-july-12(2).png)
-
-#### July 16 2022
-![Trello Board July 16 (1/2)](./docs/trello-july-16.png)
-![Trello Board July 16 (2/2)](./docs/trello-july-16(2).png)
