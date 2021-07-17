@@ -28,7 +28,7 @@ To Be Added
 ![Application Architecture for Zoom Groom app](./docs/application-architecture.png)
 
 ## Entity Relationship Diagram
-![Entity Relationship Diagram for Zoom Groom app](./docs/ERD.PNG)
+![Entity Relationship Diagram for Zoom Groom app](./docs/ERD.png)
 
 ## User Stories
 
