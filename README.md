@@ -101,6 +101,18 @@ To Be Added
 ### View User Pets
 ![Zoom Groom view user pets page wireframe](./docs/wireframes/user-pets-page.png)
 
+### Pet Details
+![Zoom Groom peyt details wireframe](./docs/wireframes/pet-details.png)
+
+### Edit Pet
+![Zoom Groom edit pet wireframe](./docs/wireframes/edit-pet.png)
+
+### Add Pet
+![Zoom Groom add pet wireframe](./docs/wireframes/add-pet.png)
+
+### Staff Roster
+![Zoom Groom staff roster wireframe](./docs/wireframes/roster.png)
+
 ## Trello
 
 You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/dog-grooming-app)
