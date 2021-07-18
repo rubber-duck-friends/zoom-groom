@@ -25,7 +25,7 @@ The final live web app will have the client deployed to [Netlify](https://www.ne
 
 ## Dataflow Diagram
 
-To Be Added
+![Data Flow Diagram](./docs/dfd.png)
 
 ## Application Architecture Diagram
 
