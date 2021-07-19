@@ -86,6 +86,10 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 ![Trello Board July 12 (1/2)](./docs/trello-july-12.png)
 ![Trello Board July 12 (2/2)](./docs/trello-july-12(2).png)
 
-#### July 16 2022
+#### July 16 2021
 ![Trello Board July 16 (1/2)](./docs/trello-july-16.png)
 ![Trello Board July 16 (2/2)](./docs/trello-july-16(2).png)
+
+#### July 19 2021
+![Trello Board July 19 (1/2)](./docs/trello-july-19.png)
+![Trello Board July 19 (2/2)](./docs/trello-july-19(2).png)
