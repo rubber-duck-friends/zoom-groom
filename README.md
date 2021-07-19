@@ -17,15 +17,22 @@ Zoom Groom is designed to be a platform for both dog owners and dog groomers to 
 
 ## Tech Stack
 
-To Be Decided
+The front end of Zoom Groom will be built using JavaScript and the [React Framework](https://reactjs.org/). Additionally, we will be using the [MaterialUI](https://material-ui.com/) components library for consistent, clean and accessible styling. The calendar functionality will be built off of the [React Calendar](https://www.npmjs.com/package/react-calendar) NPM package. Unit testing on the client side will be done with [Jest](https://jestjs.io/), as well as manual testing by an end user in the deployed web app. 
+
+Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in API mode, which will store our data for our customers, groomers, dogs, and appointments. For cloud storage of images uploaded by users, we will utilise [Cloudinary](https://cloudinary.com/?utm_source=google&utm_medium=cpc&utm_campaign=Rbrand&utm_content=492438439811&utm_term=cloudinary&gclid=Cj0KCQjwub-HBhCyARIsAPctr7w4UVA1_FttvY5MM9HH9vcO1B6366nN-pl_9QRWB579NCjopDaCTGMaAr6gEALw_wcB). Unit testing will be done using the [Rspec](https://github.com/rspec/rspec) gem.
+
+The final live web app will have the client deployed to [Netlify](https://www.netlify.com/) and the back end deployed to [Heroku](https://id.heroku.com/login).
 
 ## Dataflow Diagram
 
-To Be Added
+![Data Flow Diagram](./docs/dfd.png)
 
 ## Application Architecture Diagram
 
 ![Application Architecture for Zoom Groom app](./docs/application-architecture.png)
+
+## Entity Relationship Diagram
+![Entity Relationship Diagram for Zoom Groom app](./docs/ERD.png)
 
 ## User Stories
 
@@ -72,6 +79,18 @@ To Be Added
 
 To Be Added
 
+### Pet Details
+![Zoom Groom peyt details wireframe](./docs/wireframes/pet-details.png)
+
+### Edit Pet
+![Zoom Groom edit pet wireframe](./docs/wireframes/edit-pet.png)
+
+### Add Pet
+![Zoom Groom add pet wireframe](./docs/wireframes/add-pet.png)
+
+### Staff Roster
+![Zoom Groom staff roster wireframe](./docs/wireframes/roster.png)
+
 ## Trello
 
 You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/dog-grooming-app)
@@ -81,6 +100,7 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 #### July 10 2021
 ![Trello Board July 10 (1/2)](./docs/trello-july-10.png)
 ![Trello Board July 10 (2/2)](./docs/trello-july-10(2).png)
+
 
 #### July 12 2021
 ![Trello Board July 12 (1/2)](./docs/trello-july-12.png)
@@ -93,3 +113,4 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 #### July 19 2021
 ![Trello Board July 19 (1/2)](./docs/trello-july-19.png)
 ![Trello Board July 19 (2/2)](./docs/trello-july-19(2).png)
+
