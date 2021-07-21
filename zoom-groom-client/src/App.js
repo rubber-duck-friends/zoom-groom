@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function App() {
   useEffect(() => {
-    axios.get("localhost:4000").then(res => console.log(res))
+    axios.get("http://localhost:4000/dogs").then(res => console.log(res))
     }, [])
 
   return (
