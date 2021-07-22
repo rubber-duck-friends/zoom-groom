@@ -77,7 +77,32 @@ The final live web app will have the client deployed to [Netlify](https://www.ne
 
 ## Wireframes
 
-To Be Added
+### Landing Page
+![Zoom Groom landing page wireframe](./docs/wireframes/landing-page.png)
+
+### Sign Up Page
+![Zoom Groom sign up page wireframe](./docs/wireframes/sign-up.png)
+
+### Log In Page
+![Zoom Groom log in page wireframe](./docs/wireframes/log-in.png)
+
+### User Profile Page
+![Zoom Groom user profile page wireframe](./docs/wireframes/user-profile.png)
+
+### Edit User Profile Page
+![Zoom Groom edit user profile page wireframe](./docs/wireframes/edit-profile.png)
+
+### My Appointments Page
+![Zoom Groom my appointments page wireframe](./docs/wireframes/my-appointments.png)
+
+### Appointment Details Page
+![Zoom Groom appointment details page wireframe](./docs/wireframes/appointment-details.png)
+
+### New Appointment Page
+![Zoom Groom new appointment page wireframe](./docs/wireframes/new-appointment.png)
+
+### User Pets Page
+![Zoom Groom user pets page wireframe](./docs/wireframes/user-pets.png)
 
 ### Pet Details
 ![Zoom Groom peyt details wireframe](./docs/wireframes/pet-details.png)
