@@ -17,8 +17,8 @@ import {
 
 // const currentDate = '2018-11-01';
 const schedulerData = [
-  { startDate: '2021-07-01T09:45', endDate: '2018-11-01T11:00', title: 'Fido: Bath' },
-  { startDate: '2021-07-01T12:00', endDate: '2018-11-01T13:30', title: 'Tess: Clip' },
+  { startDate: '2021-07-25T09:45', endDate: '2021-07-25T11:00', title: 'Fido: Bath' },
+  { startDate: '2021-07-25T12:00', endDate: '2021-07-25T13:30', title: 'Tess: Clip' },
 ];
 
 
@@ -33,14 +33,14 @@ const Roster = () => (
       <ViewState
         //TODO
         //This sets a default start date, it can be controlled to be the current date but I will add this later :)
-        defaultCurrentDate="2021-07-27"
+        defaultCurrentDate="2021-07-25"
       />
       <DayView
-        startDayHour={9}
+        startDayHour={8}
         endDayHour={14}
       />
       <WeekView
-        startDayHour={10}
+        startDayHour={9}
         endDayHour={19}
       />
       <WeekView
