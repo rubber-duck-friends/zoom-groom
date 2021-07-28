@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+// import Loader from '../Utils/Loader'
 // Sends new user details to the backend 
 const signUp = () => {
 
@@ -11,8 +12,12 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  // const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   return(
     <>
+      {errorMessage && <p>{errorMessage}</p>}
+      {/* {loading && <Loader></Loader>} */}
       <h1>Sign Up Page</h1>
       <form onSubmit={signUp}>
         <label htmlFor="firstName">First Name</label>
