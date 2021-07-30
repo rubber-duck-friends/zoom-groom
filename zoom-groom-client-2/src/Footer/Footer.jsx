@@ -1,6 +1,6 @@
-import FacebookIcon from '../../assets/social-icons/facebook-icon.png'
-import TwitterIcon from '../../assets/social-icons/twitter-icon.png'
-import InstagramIcon from '../../assets/social-icons/instagram-icon.png'
+import FacebookIcon from '../assets/social-icons/facebook-icon.png'
+import TwitterIcon from '../assets/social-icons/twitter-icon.png'
+import InstagramIcon from '../assets/social-icons/instagram-icon.png'
 const Footer = () => {
     return (
         <footer>
