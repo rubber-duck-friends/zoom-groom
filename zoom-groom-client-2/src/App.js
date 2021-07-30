@@ -21,6 +21,7 @@ import EditPet from "./components/Pets/EditPet";
 import AddPet from "./components/Pets/AddPet";
 import Roster from "./components/Staff/Roster";
 import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer.jsx"
 
 
 
@@ -34,8 +35,9 @@ function App() {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      
       <Router>
+      <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" component={SignUp} />
@@ -53,6 +55,8 @@ function App() {
           <Route component={Home} />
         </Switch>
       </Router>
+      
+      <Footer></Footer>
     </div>
   );
 }
