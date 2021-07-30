@@ -12,6 +12,8 @@ import {
   DateNavigator,
   TodayButton,
   Appointments,
+  AppointmentTooltip,
+  AppointmentForm
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 
@@ -36,8 +38,8 @@ const Roster = () => (
         defaultCurrentDate="2021-07-25"
       />
       <DayView
-        startDayHour={8}
-        endDayHour={14}
+        startDayHour={9}
+        endDayHour={19}
       />
       <WeekView
         startDayHour={9}
@@ -52,12 +54,18 @@ const Roster = () => (
       />
       <MonthView />
       <DayView />
-
       <Toolbar />
       <DateNavigator />
       <TodayButton />
       <ViewSwitcher />
       <Appointments />
+      <AppointmentTooltip
+        showCloseButton
+        showOpenButton
+      />
+      <AppointmentForm
+        readOnly
+      />
     </Scheduler>
   </Paper>
 
