@@ -139,3 +139,7 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 ![Trello Board July 19 (1/2)](./docs/trello-july-19.png)
 ![Trello Board July 19 (2/2)](./docs/trello-july-19(2).png)
 
+#### July 29 2021
+![Trello Board July 29 (1/2)](./docs/trello-july-29.png)
+![Trello Board July 29 (2/2)](./docs/trello-july-29(2).png)
+

@@ -20,6 +20,8 @@ import PetDetails from "./components/Pets/PetDetails";
 import EditPet from "./components/Pets/EditPet";
 import AddPet from "./components/Pets/AddPet";
 import Roster from "./components/Staff/Roster";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer.jsx"
 
 
 
@@ -33,24 +35,28 @@ function App() {
 
   return (
     <div>
+      
       <Router>
+      <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
-          <Route path="/user/:username/edit" component={EditUserProfile} />
-          <Route path="/user/:username/appointments" component={AllAppointments} />
-          <Route path="/user/:username/pet/:id/edit" component={EditPet} />
-          <Route path="/user/:username/pet/new" compoennt={AddPet} />
-          <Route path="/user/:username/pet/:id" component={PetDetails} />
-          <Route path="/user/:username/pets" component={AllPets} />
-          <Route path="/user/:username" component={UserProfile} />
+          <Route path="/user/:userId/edit" component={EditUserProfile} />
+          <Route path="/user/:userId/appointments" component={AllAppointments} />
+          <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
+          <Route path="/user/:userId/pet/new" compoennt={AddPet} />
+          <Route path="/user/:userId/pet/:id" component={PetDetails} />
+          <Route path="/user/:userId/pets" component={AllPets} />
+          <Route path="/user/:userId" component={UserProfile} />
           <Route path="/appointment/new" component={NewAppointment} />
           <Route path="/appointment/:id" component={Appointment} />
           <Route path="/staff/roster" component={Roster} />
           <Route component={Home} />
         </Switch>
       </Router>
+      
+      <Footer></Footer>
     </div>
   );
 }

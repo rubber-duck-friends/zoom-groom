@@ -1,12 +1,9 @@
-import { useState } from "react"
-
-const signIn = () => {}
-
 const SignIn = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   return(
     <>
+      <Navbar></Navbar>
       <h1>Sign In Page</h1>
       <form onSubmit={signIn}>
       <label htmlFor="email">Email</label>
