@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # JWT is used to authenticate users and save JWT token
 gem 'jwt'
+
+gem "rspec-rails", "~> 5.0"
