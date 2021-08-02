@@ -1,5 +1,7 @@
 import {useState} from "react"
+import { useHistory } from "react-router-dom"
 import api from "../../config/api"
+import { BallTriangle } from 'svg-loaders-react'
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("")
@@ -8,14 +10,17 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+
+  // For redirecting
+  const history = useHistory()
 
   // Sends new user details to the backend 
   const signUp = async (e) => {
     e.preventDefault()
     // Set loading state to true 
-    // setLoading(true)
+    setLoading(true)
 
     // Unset error message on new request
     setErrorMessage("")
@@ -35,19 +40,22 @@ const SignUp = () => {
         // Save JWT to Local Storage
         localStorage.setItem("jwt", data.jwt)
         // Redirect to Home Page
+        history.push("/")
+
     } catch (error) {
       // If fail:
       // Display the error message
       setErrorMessage(error.message)
       // Stop loading 
-      // setLoading(false)
+      setLoading(false)
     }
   }
 
   return(
     <>
       {errorMessage && <p>{errorMessage}</p>}
-      {/* {loading && <Loader></Loader>} */}
+      {loading && <BallTriangle stroke="#00C9A7"/>}
+      
       <h1>Sign Up Page</h1>
       <form onSubmit={signUp}>
         <label htmlFor="firstName">First Name</label>

@@ -1,14 +1,20 @@
 import { useState } from "react"
+import { useHistory } from "react-router-dom"
 import api from "../../config/api"
+import { BallTriangle } from 'svg-loaders-react'
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false)
+
+  // For redirect
+  const history = useHistory()
 
   const submitLogIn = async (event) => {
     event.preventDefault()
-
+    setLoading(true)
     setErrorMessage("")
 
     try {
@@ -17,17 +23,20 @@ const SignIn = () => {
         password: password
       })
       localStorage.setItem("jwt", data.jwt)
+      history.push("/")
     } catch (error) {
       setErrorMessage(error.message)
       setTimeout(() => {
         setErrorMessage("")
-      }, 2000);
+      }, 2000)
+      setLoading(false)
     }
   }
 
   return(
     <>
       {errorMessage && <p>{errorMessage}</p>}
+      {loading && <BallTriangle stroke="#00C9A7"/>}
       <h1>Sign In Page</h1>
       <form onSubmit={submitLogIn}>
         <label htmlFor="email-input">
@@ -51,7 +60,7 @@ const SignIn = () => {
             type="submit" 
             value="Sign In"  
           />
-        </label>
+        
       </form>
     </>
   )
