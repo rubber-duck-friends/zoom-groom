@@ -8,6 +8,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false)
+  const [user, setUser] = useState("")
 
   // For redirect
   const history = useHistory()
@@ -23,6 +24,8 @@ const SignIn = () => {
         password: password
       })
       localStorage.setItem("jwt", data.jwt)
+      setUser(data.user)
+      console.log(user)
       history.push("/")
     } catch (error) {
       setErrorMessage(error.message)
@@ -51,7 +54,7 @@ const SignIn = () => {
           <input 
             type="password"
             value={password}
-            id="email-input" onChange={(e) => setPassword(e.target.value)}
+            id="password-input" onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         

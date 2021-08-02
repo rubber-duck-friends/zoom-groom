@@ -1,5 +1,5 @@
-// import { useEffect } from "react";
-// import api from "./config/api";
+import { useEffect, useState } from "react";
+import api from "./config/api";
 
 import {
   BrowserRouter as Router,
@@ -26,18 +26,25 @@ import Footer from "./Footer/Footer.jsx"
 
 
 function App() {
-  /**
-   * Below is an example of a fetch
-   */
-  // useEffect(() => {
-  //   api.get("/dogs").then((res) => console.log(res));
-  // }, []);
+  const [user, setUser] = useState("")
+  // Authenticate user
+  useEffect(() => {
+    if(localStorage.getItem("jwt")){
+      fetch(`${api}/login`, {
+        headers: {"Authenticate": localStorage.jwt}
+      })
+      .then(resp => resp.json())
+      .then(user => {
+        setUser(user)
+      })
+    }
+  }, [])
 
   return (
     <div>
       
       <Router>
-      {/* <Navbar></Navbar> */}
+      <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" component={SignUp} />
