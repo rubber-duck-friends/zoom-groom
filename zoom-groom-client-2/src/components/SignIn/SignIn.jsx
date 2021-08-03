@@ -8,7 +8,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false)
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState({})
 
   // For redirect
   const history = useHistory()
@@ -23,7 +23,8 @@ const SignIn = () => {
         email: email,
         password: password
       })
-      localStorage.setItem("jwt", data.jwt)
+      console.log(data)
+      localStorage.setItem("jwt", data.token)
       setUser(data.user)
       console.log(user)
       history.push("/")

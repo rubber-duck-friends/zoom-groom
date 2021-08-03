@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "./config/api";
+import jwt_decode from "jwt-decode"
 
 import {
   BrowserRouter as Router,
@@ -25,21 +26,11 @@ import Footer from "./Footer/Footer.jsx"
 
 
 
-function App() {
-  const [user, setUser] = useState("")
-  // Authenticate user
-  useEffect(() => {
-    if(localStorage.getItem("jwt")){
-      fetch(`${api}/login`, {
-        headers: {"Authenticate": localStorage.jwt}
-      })
-      .then(resp => resp.json())
-      .then(user => {
-        setUser(user)
-      })
-    }
-  }, [])
-
+function App({currentUserId}) {
+  if(localStorage.getItem("jwt")){
+    let currentUserId = jwt_decode(localStorage.getItem("jwt"))
+    console.log("Current User ID", currentUserId)
+  }
   return (
     <div>
       
