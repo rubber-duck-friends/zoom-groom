@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "User creation failed with those parameters. Please try again."}, status: 422
     end
   end
 
@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     else
       render json: {error: "Invalid username or password"}, status: 404
     end
+  end
+
+  def token_authenticate
+    token = request.header["Authenticate"]
+    user = User.find(decode(token)["user_id"])
+
+    render json: user
   end
 
   def auto_login

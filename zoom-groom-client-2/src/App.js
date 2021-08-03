@@ -1,5 +1,6 @@
-// import { useEffect } from "react";
-// import api from "./config/api";
+import { useEffect, useState } from "react";
+import api from "./config/api";
+import jwt_decode from "jwt-decode"
 
 import {
   BrowserRouter as Router,
@@ -25,19 +26,16 @@ import Footer from "./Footer/Footer.jsx"
 
 
 
-function App() {
-  /**
-   * Below is an example of a fetch
-   */
-  // useEffect(() => {
-  //   api.get("/dogs").then((res) => console.log(res));
-  // }, []);
-
+function App({currentUserId}) {
+  if(localStorage.getItem("jwt")){
+    let currentUserId = jwt_decode(localStorage.getItem("jwt"))
+    console.log("Current User ID", currentUserId)
+  }
   return (
     <div>
       
       <Router>
-      {/* <Navbar></Navbar> */}
+      <Navbar></Navbar>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" component={SignUp} />

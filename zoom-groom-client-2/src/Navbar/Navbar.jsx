@@ -1,19 +1,15 @@
 import { useRouteMatch, Link } from "react-router-dom";
 
-function parseJwt(jwt) {
-  // if (!jwt) {
-  //   return;
-  // }
-  // const base64Url = jwt.split(".")[1];
-  // const base64 = base64Url.replace("-", "+").replace("_", "/");
-  // return JSON.parse(window.atob(base64));
-}
+
 
 const Navbar = () => {
+
+  
   const signInPage = useRouteMatch("/sign-in");
   const signUpPage = useRouteMatch("/sign-up");
-  const jwt = localStorage.getItem("jwt");
-  let loggedInUser = parseJwt(jwt).exp;
+  let loggedInUser = localStorage.getItem("jwt")
+
+
 
   if (!loggedInUser && signInPage) {
     return <Link to="/sign-up">Sign Up</Link>;
