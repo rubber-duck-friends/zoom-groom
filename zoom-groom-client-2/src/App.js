@@ -43,7 +43,7 @@ function App({currentUserId}) {
           <Route path="/user/:userId/edit" component={EditUserProfile} />
           <Route path="/user/:userId/appointments" component={AllAppointments} />
           <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
-          <Route path="/user/:userId/pet/new" compoennt={AddPet} />
+          <Route path="/user/:userId/pet/new" component={AddPet} />
           <Route path="/user/:userId/pet/:id" component={PetDetails} />
           <Route path="/user/:userId/pets" component={AllPets} />
           <Route path="/user/:userId" component={UserProfile} />
