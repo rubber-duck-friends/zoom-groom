@@ -27,10 +27,10 @@ import Footer from "./Footer/Footer.jsx"
 
 
 function App({currentUserId}) {
-  if(localStorage.getItem("jwt")){
-    let currentUserId = jwt_decode(localStorage.getItem("jwt"))
-    console.log("Current User ID", currentUserId)
-  }
+  // if(localStorage.getItem("jwt")){
+  //   let currentUserId = jwt_decode(localStorage.getItem("jwt"))
+  //   console.log("Current User ID", currentUserId)
+  // }
   return (
     <div>
       
