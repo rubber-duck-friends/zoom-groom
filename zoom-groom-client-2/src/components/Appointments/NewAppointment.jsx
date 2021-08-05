@@ -1,50 +1,56 @@
-import { useState } from 'react'
+import { useState } from "react";
+import Dropdown from "../atom/Dropdown";
 
 const NewAppointment = () => {
-  const [pets, setPets] = useState(["dog1","dog2","dog3"])
-  const [chosenPet, setChosenPet] = useState('')
-  const [availableDates, setAvailableDates] = useState('12pm', '1pm')
+  const [pets, setPets] = useState(["dog1", "dog2", "dog3"]);
+  const [chosenPet, setChosenPet] = useState("");
+  const [availableDates, setAvailableDates] = useState(["01/01/2022", "02/01/2022", "03/01/2022"]);
+  const [chosenDate, setChosenDate] = useState("");
+  const [availableTimes, setAvailableTimes] = useState(["11:30", "12:00", "12:30", "13:00", "13:30"])
+  const [chosenTime, setChosenTime] = useState("")
+  const [availableServices, setAvailableServices] = useState(["Full Groom", "Nail Clip", "Wash"])
+  const [chosenService, setChosenService] = useState("")
 
-  const handleDropdownChange = (callback, event) => {
-    callback(event.target.value)
+  const handleSubmit = (e) => {
+    e.preventDefault();
   }
 
-  return(
+  return (
     <>
       <h1>New Appointment</h1>
-      <form>
-        <label htmlFor="pets-dropdown">
-          Pet:
-          <select 
-            id="pets-dropdown"
-            name="pets-dropdown"
-            onChange={handleDropdownChange(setChosenPet)}
-            value={chosenPet}
-          >
-            {pets.map((pet, index) => (
-              <option key={index} value={pet}>{pet}</option>
-            ))}
-          </select>
-        </label>
-        
-        <label htmlFor="date-dropdown">
-          Date:
-          <select 
-            id="date-dropdown"
-            name="date-dropdown"
-            onChange={handleDropdownChange(setChosenPet)}
-            value={chosenPet}
-          >
-            {pets.map((pet, index) => (
-              <option key={index} value={pet}>{pet}</option>
-            ))}
-          </select>
-        </label>
-
-
+      <form onSubmit={handleSubmit}>
+        <Dropdown
+          name="Pet"
+          id="pets-dropdown"
+          value={chosenPet}
+          setValue={setChosenPet}
+          options={pets}
+        />
+        <Dropdown
+          name="Date"
+          id="date-dropdown"
+          value={chosenDate}
+          setValue={setChosenDate}
+          options={availableDates}
+        />
+        <Dropdown
+          name="Time"
+          id="time-dropdown"
+          value={chosenTime}
+          setValue={setChosenTime}
+          options={availableTimes}
+        />
+        <Dropdown
+          name="Service Type"
+          id="service-dropdown"
+          value={chosenService}
+          setValue={setChosenService}
+          options={availableServices}
+        />
+        <input type="submit" value="Submit" />
       </form>
     </>
-  )
-}
+  );
+};
 
-export default NewAppointment
+export default NewAppointment;
