@@ -24,13 +24,19 @@ class UsersController < ApplicationController
 
   def token_authenticate
     token = request.header["Authenticate"]
-    user = User.find(decode(token)["user_id"])
+    @user = User.find(decode(token)["user_id"])
 
-    render json: user
+    render json: @user
   end
 
   def auto_login
     render json: @user
+  end
+
+  def view
+    @user = User.where(id: params[:userId]) 
+    render json: @user
+    
   end
 
   private
