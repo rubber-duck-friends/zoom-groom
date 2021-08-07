@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_232454) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
-    t.datetime "age"
+    t.datetime "birthday"
     t.string "sex"
     t.boolean "fixed_status"
     t.string "breed"

@@ -38,8 +38,7 @@ const SignUp = () => {
       console.log(data)
       // If success:
         // Save JWT to Local Storage
-        localStorage.setItem("jwt", data.jwt)
-        console.log(data.jwt)
+        localStorage.setItem("jwt", data.token)
         // Redirect to Home Page
         history.push("/")
 

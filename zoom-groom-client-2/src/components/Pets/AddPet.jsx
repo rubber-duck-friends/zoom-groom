@@ -10,10 +10,10 @@ const AddPet = () => {
   const { userId } = useParams()
   const [petName, setPetName] = useState("")
   const [petAge, setPetAge] = useState("")
-  const [petSex, setPetSex] = useState("")
+  const [petSex, setPetSex] = useState("F")
   const [fixedStatus, setFixedStatus] = useState(false)
   const [petBreed, setPetBreed] = useState("")
-  const [petSize, setPetSize] = useState("")
+  const [petSize, setPetSize] = useState("XS")
   const [petNotes, setPetNotes] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
   const uploadPhoto = () => {
@@ -31,9 +31,9 @@ const AddPet = () => {
   
       // Send the post request to the API
       try {
-        const { data } = await api.post("/user/:id/pets/:id", {
+        const { data } = await api.post("/dogs", {
           name: petName, 
-          birthday: petAge,
+          age: petAge,
           sex: petSex,
           fixed_status: fixedStatus,
           breed: petBreed,
