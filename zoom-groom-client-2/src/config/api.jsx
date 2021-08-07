@@ -5,11 +5,11 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((req) => {
-  const jwt = localStorage.getItem("jwt");
-  if(jwt) {
-    req.headers["Authorization"] = `Bearer ${jwt}`;
+  const jwt = localStorage.getItem('jwt')
+  if (jwt) {
+    req.headers["Authorization"] = `Bearer ${jwt}`
   }
-  return req;
+  return req
 })
 
 export default api;

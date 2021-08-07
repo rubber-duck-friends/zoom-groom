@@ -10,10 +10,10 @@ const AddPet = () => {
   const { userId } = useParams()
   const [petName, setPetName] = useState("")
   const [petAge, setPetAge] = useState("")
-  const [petSex, setPetSex] = useState("")
+  const [petSex, setPetSex] = useState("F")
   const [fixedStatus, setFixedStatus] = useState(false)
   const [petBreed, setPetBreed] = useState("")
-  const [petSize, setPetSize] = useState("")
+  const [petSize, setPetSize] = useState("XS")
   const [petNotes, setPetNotes] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
   const uploadPhoto = () => {
