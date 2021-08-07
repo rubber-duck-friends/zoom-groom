@@ -31,9 +31,9 @@ const AddPet = () => {
   
       // Send the post request to the API
       try {
-        const { data } = await api.post("/user/:id/pets/:id", {
+        const { data } = await api.post("/dogs", {
           name: petName, 
-          birthday: petAge,
+          age: petAge,
           sex: petSex,
           fixed_status: fixedStatus,
           breed: petBreed,

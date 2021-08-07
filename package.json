@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@agney/react-loading": "^0.1.2",
-    "@types/jsonwebtoken": "^8.5.4",
-    "axios": "^0.21.1"
-  }
-}
