@@ -34,9 +34,19 @@ class UsersController < ApplicationController
   end
 
   def view
-    @user = User.where(id: params[:userId]) 
+    @user = User.where(id: params[:id]) 
     render json: @user
-    
+  end
+
+  # PATCH/PUT /users/:id
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      render json: @user_params, status: 200
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   private

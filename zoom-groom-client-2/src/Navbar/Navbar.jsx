@@ -1,36 +1,45 @@
-import { useRouteMatch, Link } from "react-router-dom";
+import { useRouteMatch, Link, useHistory } from "react-router-dom";
 
+import logOut from "../utils/logOut";
 
-
-const Navbar = () => {
-
-  
+const Navbar = ({user, setUser}) => {
   const signInPage = useRouteMatch("/sign-in");
   const signUpPage = useRouteMatch("/sign-up");
-  let loggedInUser = localStorage.getItem("jwt")
+  const otherPage = !signInPage && !signUpPage;
 
+  const history = useHistory();
 
-
-  if (!loggedInUser && signInPage) {
-    return <Link to="/sign-up">Sign Up</Link>;
-  } else if (!loggedInUser && signUpPage) {
-    return <Link to="/sign-in">Log In</Link>;
-  } else if (loggedInUser && loggedInUser.is_staff) {
-    return <p>STAFF BAR</p>;
-  } else if (loggedInUser && !loggedInUser.is_staff) {
-    return <p>NORMAL USER BAR</p>;
-  } else {
-    return (
+  return (
+    <nav>
       <ul>
-        <li>
-          <Link to="/sign-up">Sign Up</Link>
-        </li>
-        <li>
-          <Link to="/sign-in">Log In</Link>
-        </li>
+        {!user && signInPage && (
+          <li>
+            <Link to="/sign-up">Sign Up</Link>
+          </li>
+        )}
+        {!user && signUpPage && (
+          <li>
+            <Link to="/sign-up">Sign Up</Link>
+          </li>
+        )}
+        {!user && otherPage && (
+          <>
+            <li>
+              <Link to="/sign-up">Sign Up</Link>
+            </li>
+            <li>
+              <Link to="/sign-in">Log In</Link>
+            </li>
+          </>
+        )}
+        {user && (
+          <li>
+            <button onClick={() => logOut(history, setUser)}>Sign Out</button>
+          </li>
+        )}
       </ul>
-    );
-  }
+    </nav>
+  );
 };
 
 export default Navbar;

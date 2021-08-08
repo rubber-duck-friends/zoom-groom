@@ -1,29 +1,45 @@
-import {useParams, Link} from "react-router-dom"
-import BackButton from "../BackButton/BackButton"
-import PlaceholderDogImage from "../../assets/placeholder-images/default-dog.png"
+import { Link, useParams, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import BackButton from "../BackButton/BackButton";
+import PlaceholderDogImage from "../../assets/placeholder-images/default-dog.png";
+import getPet from "../../config/getPet";
+import deletePet from "../../config/deletePet";
 
 const PetDetails = () => {
-  const { userId, id } = useParams()
-  return(
+  const [pet, setPet] = useState({});
+  const [error, setError] = useState("");
+  const { id, userId } = useParams();
+  const history = useHistory();
+
+  useEffect(() => {
+    try {
+      setPet(getPet(id));
+    } catch (error) {
+      setError(error.message);
+    }
+  }, [id]);
+
+  return (
     <>
       <BackButton></BackButton>
+      {error && <p>{error}</p>}
       <h1>About Pet</h1>
-      <img src={PlaceholderDogImage} width="200px"></img>
+      <img src={PlaceholderDogImage} width="200px" alt="Placeholder-Dog"></img>
       <div>
-        <p>NAME: Name</p>
-        <p>SEX: M</p>
-        <p>BREED: Breed</p>
-        <p>AGE: Age</p>
-        <p>NOTES: Notes notes notes</p>
-        <p>OWNER: <Link to="/users/:id">Owner</Link></p>
+        <p>NAME: {pet && pet.name}</p>
+        <p>SEX: {pet && pet.sex}</p>
+        <p>BREED: {pet && pet.breed}</p>
+        <p>AGE: {pet && pet.age}</p>
+        <p>FIXED: {pet && pet.fixed}</p>
       </div>
       <div>
-        <Link to="/user/:userId/pet/:id/edit">Edit Pet</Link>
-        {/* TODO: Remove pet modal */}
-        <Link to="">Remove Pet</Link>
+        <Link to={`/user/${userId}/pet/${id}/edit`}>Edit Pet</Link>
+        <button 
+          onClick={deletePet(id, setError, history)}
+        >Remove Pet</button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PetDetails
+export default PetDetails;

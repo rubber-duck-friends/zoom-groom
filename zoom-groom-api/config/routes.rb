@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'users#sign_in'
     get 'sign_in', to: 'users#token_authenticate'
   end
-  get '/user', to: 'users#view'
+  get '/user/:id', to: 'users#view'
+  put '/users/:id', to: 'users#update'
 end

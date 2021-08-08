@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import api from "./config/api";
-import jwt_decode from "jwt-decode"
-
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 
 import Home from "./components/Home/Home";
@@ -26,21 +24,20 @@ import Footer from "./Footer/Footer.jsx"
 
 
 
-function App({currentUserId}) {
-  // if(localStorage.getItem("jwt")){
-  //   let currentUserId = jwt_decode(localStorage.getItem("jwt"))
-  //   console.log("Current User ID", currentUserId)
-  // }
+function App() {
+  const [user, setUser] = useState(null)
+
   return (
     <div>
       
       <Router>
-      <Navbar></Navbar>
+      <Navbar user={user} setUser={setUser}/>
+      <Link to="/user/edit">edit</Link>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/user/:userId/edit" component={EditUserProfile} />
+          <Route path="/sign-up" render={() => <SignUp setUser={setUser}/>} />
+          <Route path="/sign-in" render={() => <SignIn setUser={setUser}/>} />
+          <Route path="/user/edit" render={() => <EditUserProfile user={user} setUser={setUser}/>} />
           <Route path="/user/:userId/appointments" component={AllAppointments} />
           <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
           <Route path="/user/:userId/pet/new" component={AddPet} />

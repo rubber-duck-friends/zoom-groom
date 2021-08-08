@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom"
 import {useState} from "react"
 import TextInput from "../atom/TextInput"
-// import Dropdown from "../atom/Dropdown"
+import CheckboxInput from "../atom/CheckboxInput"
 
 const initialPetState = {
   name: "pet1",
@@ -25,7 +25,8 @@ const EditPet = () => {
   const [image, setImage] = useState(pet.img)
   const [notes, setNotes] = useState(pet.notes)
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     setPet({
       name,
       age,
@@ -35,6 +36,7 @@ const EditPet = () => {
       img: image,
       notes
     })
+    // api call (pet{})
   }
 
   return(
@@ -70,13 +72,13 @@ const EditPet = () => {
             id="input-sex"
             updateValue={setSex}
           />
-          {/* Below needs to be boolean checkbox */}
-          {/* <TextInput 
+          
+          <CheckboxInput 
             name="Fixed" 
             value={fixed}
             id="input-fixed"
             updateValue={setFixed}
-          /> */}
+          />
           <TextInput
             name="Notes"
             value={notes}
