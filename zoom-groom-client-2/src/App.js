@@ -32,15 +32,16 @@ function App() {
       
       <Router>
       <Navbar user={user} setUser={setUser}/>
-      <Link to="/user/edit">edit</Link>
+      <Link to="/user/edit">Edit User</Link>
+      <Link to="/pet/new">New Pet</Link>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/sign-up" render={() => <SignUp setUser={setUser}/>} />
-          <Route path="/sign-in" render={() => <SignIn setUser={setUser}/>} />
-          <Route path="/user/edit" render={() => <EditUserProfile user={user} setUser={setUser}/>} />
+          <Route path="/sign-up" render={()=><SignUp setUser={setUser}/>} />
+          <Route path="/sign-in" render={()=><SignIn setUser={setUser}/>} />
+          <Route path="/user/edit" render={()=><EditUserProfile user={user} setUser={setUser}/>} />
           <Route path="/user/:userId/appointments" component={AllAppointments} />
           <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
-          <Route path="/user/:userId/pet/new" component={AddPet} />
+          <Route path="/pet/new" render={()=><AddPet user={user}/>} />
           <Route path="/user/:userId/pet/:id" component={PetDetails} />
           <Route path="/user/:userId/pets" component={AllPets} />
           <Route path="/user/:userId" component={UserProfile} />
