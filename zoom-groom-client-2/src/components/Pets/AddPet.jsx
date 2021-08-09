@@ -1,55 +1,54 @@
-import { useState } from "react"
-import { useHistory } from "react-router-dom"
-import BackButton from "../BackButton/BackButton"
-import addPet from "../../config/addPet"
-import TextInput from "../atom/TextInput"
-import DateInput from "../atom/DateInput"
-import Dropdown from "../atom/Dropdown"
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import BackButton from "../BackButton/BackButton";
+import addPet from "../../config/addPet";
+import TextInput from "../atom/TextInput";
+import DateInput from "../atom/DateInput";
+import Dropdown from "../atom/Dropdown";
+import CheckboxInput from "../atom/CheckboxInput";
 
+const AddPet = ({ user }) => {
+  const [petName, setPetName] = useState("");
+  const [petAge, setPetAge] = useState("");
+  const [petSex, setPetSex] = useState("F");
+  const [fixedStatus, setFixedStatus] = useState(false);
+  const [petBreed, setPetBreed] = useState("");
+  const [petSize, setPetSize] = useState("XS");
+  const [errorMessage, setErrorMessage] = useState("");
 
-const AddPet = ({user}) => {
-  const [petName, setPetName] = useState("")
-  const [petAge, setPetAge] = useState("")
-  const [petSex, setPetSex] = useState("F")
-  const [fixedStatus, setFixedStatus] = useState(false)
-  const [petBreed, setPetBreed] = useState("")
-  const [petSize, setPetSize] = useState("XS")
-  const [errorMessage, setErrorMessage] = useState("")
-  
   const history = useHistory();
 
-    // Sends new user details to the backend 
-    const createDog = async (e) => {
-      e.preventDefault()
-      // reset error code
-      setErrorMessage("")
-      // Send the post request to the API
-      try {
-        addPet(petName, petAge, petSex, fixedStatus, petBreed, petSize, user.id)
-        history.push("/")
-      } catch (error) {
-        // Display the error message
-        setErrorMessage(error.message)
-      }
+  // Sends new user details to the backend
+  const createDog = async (e) => {
+    e.preventDefault();
+    // reset error code
+    setErrorMessage("");
+    // Send the post request to the API
+    try {
+      addPet(petName, petAge, petSex, fixedStatus, petBreed, petSize, user.id);
+      history.push("/");
+    } catch (error) {
+      // Display the error message
+      setErrorMessage(error.message);
     }
+  };
 
-  return(
+  return (
     <>
       {errorMessage && <p>{errorMessage}</p>}
       <BackButton />
-      
+
       <h1>Add a Pet</h1>
 
       <form onSubmit={createDog}>
-
-        <TextInput 
+        <TextInput
           name="Pet Name:"
           value={petName}
           id="pet-name-input"
           updateValue={setPetName}
         />
 
-        <DateInput 
+        <DateInput
           name="Age:"
           value={petAge}
           id="pet-age-input"
@@ -57,20 +56,21 @@ const AddPet = ({user}) => {
         />
 
         <Dropdown
-          name="Sex:"
+          name="Sex"
           id="pet-sex-dropdown"
           value={petSex}
           setValue={setPetSex}
           options={["M", "F"]}
         />
 
-        <label htmlFor="fixedStatus">FIXED?</label>
-        <select id="fixedStatus" value={fixedStatus} onChange={(e) => setFixedStatus(e.target.value)}>
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
-        </select>
+        <CheckboxInput
+          name="Fixed:"
+          value={fixedStatus}
+          id="input-fixed-status"
+          updateValue={setFixedStatus}
+        />
 
-        <TextInput 
+        <TextInput
           name="Breed:"
           value={petBreed}
           id="pet-breed-input"
@@ -88,7 +88,7 @@ const AddPet = ({user}) => {
         <button type="submit">Add Pet</button>
       </form>
     </>
-  )
-}
+  );
+};
 
-export default AddPet
+export default AddPet;

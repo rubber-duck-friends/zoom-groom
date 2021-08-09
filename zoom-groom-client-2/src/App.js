@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import {
   BrowserRouter as Router,
@@ -21,19 +22,21 @@ import AddPet from "./components/Pets/AddPet";
 import Roster from "./components/Staff/Roster";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer.jsx"
+import getUser from "./config/getUser";
+
 
 
 
 function App() {
-  const [user, setUser] = useState(null)
+  const jwt = localStorage.getItem("jwt")
+  const initialUserState = (jwt && getUser(jwt_decode(jwt).user_id)) || null
+  const [user, setUser] = useState(initialUserState)
 
   return (
     <div>
       
       <Router>
       <Navbar user={user} setUser={setUser}/>
-      <Link to="/user/edit">Edit User</Link>
-      <Link to="/pet/new">New Pet</Link>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" render={()=><SignUp setUser={setUser}/>} />

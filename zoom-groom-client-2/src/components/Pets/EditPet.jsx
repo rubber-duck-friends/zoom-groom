@@ -79,6 +79,7 @@ const EditPet = () => {
             id="input-fixed"
             updateValue={setFixed}
           />
+          
           <TextInput
             name="Notes"
             value={notes}
