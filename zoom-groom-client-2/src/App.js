@@ -24,19 +24,18 @@ import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer.jsx"
 import getUser from "./config/getUser";
 
-
-
-
 function App() {
   const jwt = localStorage.getItem("jwt")
   const initialUserState = (jwt && getUser(jwt_decode(jwt).user_id)) || null
   const [user, setUser] = useState(initialUserState)
+  const [pet, setPet] = useState(null)
 
   return (
     <div>
       
       <Router>
       <Navbar user={user} setUser={setUser}/>
+      <Link to="/pets">Pets</Link>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/sign-up" render={()=><SignUp setUser={setUser}/>} />
@@ -46,7 +45,7 @@ function App() {
           <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
           <Route path="/pet/new" render={()=><AddPet user={user}/>} />
           <Route path="/user/:userId/pet/:id" component={PetDetails} />
-          <Route path="/user/:userId/pets" component={AllPets} />
+          <Route path="/pets" render={() => <AllPets user={user} setPet={setPet} />}/>
           <Route path="/user/:userId" component={UserProfile} />
           <Route path="/appointment/new" component={NewAppointment} />
           <Route path="/appointment/:id" component={Appointment} />

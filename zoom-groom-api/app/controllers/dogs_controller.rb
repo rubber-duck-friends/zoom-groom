@@ -13,6 +13,11 @@ class DogsController < ApplicationController
     render json: @dog
   end
 
+  def show_dog_by_user
+    @dogs = Dog.where(user_id: params[:id])
+    render json: @dogs
+  end
+
   # POST /dogs
   def create
     @dog = logged_in_user.dogs.new(dog_params)

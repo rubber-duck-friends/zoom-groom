@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   get '/user/:id', to: 'users#view'
   put '/users/:id', to: 'users#update'
+  get '/dogs/all/:id', to: 'dogs#show_dog_by_user'
 end
