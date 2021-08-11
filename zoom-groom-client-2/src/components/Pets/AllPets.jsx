@@ -3,8 +3,6 @@ import getPetByUser from "../../config/getPetByUser";
 const AllPets = ({ user, setPet }) => {
   const userPets = getPetByUser(user.id);
 
-  console.log(typeof(userPets))
-
   return (
     <>
       <h1>
