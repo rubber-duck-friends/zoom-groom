@@ -17,11 +17,27 @@ Zoom Groom is designed to be a platform for both dog owners and dog groomers to 
 
 ## Tech Stack
 
-The front end of Zoom Groom will be built using TypeScript and the [React Framework](https://reactjs.org/). Additionally, we will be using the [MaterialUI](https://material-ui.com/) components library for consistent, clean and accessible styling. The calendar functionality will be built off of the [React Calendar](https://www.npmjs.com/package/react-calendar) NPM package. Unit testing on the client side will be done with [Jest](https://jestjs.io/), as well as manual testing by an end user in the deployed web app. 
+The front end of Zoom Groom will be built using JavaScript and the [React Framework](https://reactjs.org/). Unit testing on the client side will be done with [Jest](https://jestjs.io/), as well as manual testing by an end user in the deployed web app. 
 
-Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in API mode, which will store our data for our customers, groomers, dogs, and appointments. For cloud storage of images uploaded by users, we will utilise [Cloudinary](https://cloudinary.com/?utm_source=google&utm_medium=cpc&utm_campaign=Rbrand&utm_content=492438439811&utm_term=cloudinary&gclid=Cj0KCQjwub-HBhCyARIsAPctr7w4UVA1_FttvY5MM9HH9vcO1B6366nN-pl_9QRWB579NCjopDaCTGMaAr6gEALw_wcB). Unit testing will be done using the [Rspec](https://github.com/rspec/rspec) gem.
+Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in API mode, which will store our data for our customers, groomers, dogs, and appointments. Unit testing will be done using the [Rspec](https://github.com/rspec/rspec) gem.
 
 The final live web app will have the client deployed to [Netlify](https://www.netlify.com/) and the back end deployed to [Heroku](https://id.heroku.com/login).
+
+You can now view the live website at http://www.zoomgroombookings.com/
+
+### Libraries
+
+A number of libraries were used in the production of this application to make building and testing both ends as smooth as possible, and reducing spaghetti code in some areas.
+
+The calls to the back end of our app are made using 'axios', which allows us to create an instance of our api (found in config/api.jsx) which we can then reference each time we need to make a request. Additionally, the syntax axios provides is much cleaner than the syntax that fetch requests use.
+
+Because we are using JWTs as a form of user authentication, we have utilised 'jwt-decode' to import a function for decoding the JWT and allowing us to pull a user ID from it. This, in turn, lets us make an axios call using the ID from the JWT to find the matching user, and render content appropriately, such as the user's dogs.
+
+Having a visual indicator of load state is crucial to being able to show users that our app is processing their requests, such as when they are logging in. By using the 'svg-loaders-react' library, we were able to quickly and easily import an engaging loading indicator that we then attached to our load states for requests to the API. This saved us from having to write out extra CSS and streamlined the process of confirming a load state in a visually appealing way.
+
+For testing our front end, we have used Jest as well as the React Testing Library. Additionally, by using 'jest-dom', we can also access additional matcher methods designed with React testing in mind. Using these libraries together allows for the testing of React components by virtually rendering DOM nodes and using Jest assertations to test their render conditions.
+
+Our tests on the back end are written using the 'rspec' gem. This testing library is being used in place of the default 'minitest' gem due to our familiarity writing tests in rspec. Testing with this gem pertains to the database and the CRUD functionality of our API's models.
 
 ## Dataflow Diagram
 
@@ -142,4 +158,8 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 #### July 29 2021
 ![Trello Board July 29 (1/2)](./docs/trello-july-29.png)
 ![Trello Board July 29 (2/2)](./docs/trello-july-29(2).png)
+
+#### August 12 2021
+![Trello Board August 12 (1/2)](./docs/trello-august-12.png)
+![Trello Board August 12 (2/2)](./docs/trello-august-12(2).png)
 
