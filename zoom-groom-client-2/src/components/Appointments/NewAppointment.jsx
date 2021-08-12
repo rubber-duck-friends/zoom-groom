@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dropdown from "../atom/Dropdown";
+import getPetByUser from "../../config/getPetByUser";
+import DateInput from "../atom/DateInput";
+import addAppointment from "../../config/addAppointment";
 
-const NewAppointment = () => {
-  const [pets, setPets] = useState(["dog1", "dog2", "dog3"]);
-  const [chosenPet, setChosenPet] = useState("");
-  const [availableDates, setAvailableDates] = useState(["01/01/2022", "02/01/2022", "03/01/2022"]);
-  const [chosenDate, setChosenDate] = useState("");
-  const [availableTimes, setAvailableTimes] = useState(["11:30", "12:00", "12:30", "13:00", "13:30"])
-  const [chosenTime, setChosenTime] = useState("")
-  const [availableServices, setAvailableServices] = useState(["Full Groom", "Nail Clip", "Wash"])
+const NewAppointment = ({user}) => {
+  const [pets, setPets] = useState([]);
+  const [chosenPet, setChosenPet] = useState(null);
+  const [chosenPetId, setChosenPetId] = useState(null);
+  const [chosenDate, setChosenDate] = useState(Date.now());
+  const availableTimes = ["11:30", "12:00", "12:30", "13:00", "13:30"]
+  const [chosenTime, setChosenTime] = useState("11:30")
+  const availableServices = ["Full Groom", "Nail Clip", "Wash"]
   const [chosenService, setChosenService] = useState("")
+
+  useEffect(() => {
+    getPetByUser(user.id).then(dogs => setPets(dogs))
+  }, [user]);
+
+  useEffect(() => {
+    pets.forEach(pet => {
+      if(pet.name === chosenPet){
+        setChosenPetId(pet.id)
+      }
+    })
+  }, [chosenPet, pets]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addAppointment(`${chosenDate} ${chosenTime}`, chosenPetId)
   }
 
   return (
@@ -24,14 +40,13 @@ const NewAppointment = () => {
           id="pets-dropdown"
           value={chosenPet}
           setValue={setChosenPet}
-          options={pets}
+          options={pets.map((pet) => pet.name)}
         />
-        <Dropdown
+        <DateInput
           name="Date"
           id="date-dropdown"
           value={chosenDate}
-          setValue={setChosenDate}
-          options={availableDates}
+          updateValue={setChosenDate}
         />
         <Dropdown
           name="Time"

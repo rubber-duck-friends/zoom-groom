@@ -1,7 +1,8 @@
 import api from "./api";
-import getPet from "./getPet";
 
-const editPet = async ({id, name, age, sex, fixedStatus, breed}, setPet) => {
+
+const editPet = async (id, name, age, sex, fixedStatus, breed) => {
+
   await api.put(`/dogs/${id}`, {
     name: name,
     age: age,
@@ -9,7 +10,8 @@ const editPet = async ({id, name, age, sex, fixedStatus, breed}, setPet) => {
     fixed_status: fixedStatus,
     breed: breed,
   });
-  getPet(id, setPet);
+
 };
 
 export default editPet;
+

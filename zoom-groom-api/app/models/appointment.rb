@@ -1,3 +1,4 @@
 class Appointment < ApplicationRecord
-  belongs_to :dog
+  has_one :dog
+  belongs_to :user
 end
