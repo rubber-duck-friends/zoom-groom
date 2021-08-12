@@ -1,12 +1,6 @@
-import { useEffect, useState } from "react";
-import api from "./config/api";
-import jwt_decode from "jwt-decode"
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Home from "./components/Home/Home";
 import SignUp from "./components/SignUp/SignUp";
@@ -22,30 +16,36 @@ import EditPet from "./components/Pets/EditPet";
 import AddPet from "./components/Pets/AddPet";
 import Roster from "./components/Staff/Roster";
 import Navbar from "./Navbar/Navbar";
-import Footer from "./Footer/Footer.jsx"
+import Footer from "./Footer/Footer.jsx";
+import getUser from "./config/getUser";
 
+function App() {
+  const [user, setUser] = useState(null);
+  const [pet, setPet] = useState(null);
 
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      const decodedJwt = jwt_decode(jwt);
+      getUser(decodedJwt.user_id, setUser);
+    }
+  }, []);
 
-function App({currentUserId}) {
-  // if(localStorage.getItem("jwt")){
-  //   let currentUserId = jwt_decode(localStorage.getItem("jwt"))
-  //   console.log("Current User ID", currentUserId)
-  // }
   return (
     <div>
-      
       <Router>
-      <Navbar></Navbar>
+        <Navbar user={user} setUser={setUser} />
+        <Link to="/pets">Pets</Link>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/user/:userId/edit" component={EditUserProfile} />
+          <Route path="/sign-up" render={() => <SignUp setUser={setUser} />} />
+          <Route path="/sign-in" render={() => <SignIn setUser={setUser} />} />
+          <Route path="/user/edit" render={() => <EditUserProfile user={user} setUser={setUser} />}/>
           <Route path="/user/:userId/appointments" component={AllAppointments} />
           <Route path="/user/:userId/pet/:id/edit" component={EditPet} />
-          <Route path="/user/:userId/pet/new" component={AddPet} />
+          <Route path="/pet/new" render={() => <AddPet user={user} />} />
           <Route path="/user/:userId/pet/:id" component={PetDetails} />
-          <Route path="/user/:userId/pets" component={AllPets} />
+          <Route path="/pets">{user && <AllPets user={user} setPet={setPet} />}</Route>
           <Route path="/user/:userId" component={UserProfile} />
           <Route path="/appointment/new" component={NewAppointment} />
           <Route path="/appointment/:id" component={Appointment} />
@@ -53,7 +53,7 @@ function App({currentUserId}) {
           <Route component={Home} />
         </Switch>
       </Router>
-      
+
       <Footer></Footer>
     </div>
   );

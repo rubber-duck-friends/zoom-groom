@@ -1,37 +1,35 @@
-import { useParams } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom"
+import getPetByUser from "../../config/getPetByUser";
 
-const initialPetState = [
-  {
-    name: "pet1",
-    img: "http://image.link",
-    id: 1
-  },
-  {
-    name: "pet2",
-    img: "http://image.link",
-    id: 2
-  }
-]
+const AllPets = ({ user, setPet }) => {
+  const [userPets, setUserPets] = useState([])
+  const history = useHistory();
+  
+  
+  // if(!user) return null
+  useEffect(() => {
+    getPetByUser(user.id).then(pets => setUserPets(pets))
+  }, [user]);
 
-const AllPets = () => {
-  const { userId } = useParams()
-  const [pets, setPets] = useState(initialPetState)
 
-  return(
+  return (
     <>
-      <h1>{userId} Pet{pets.length > 1 && "'s"}</h1>
-      <p>Click an image to view pet details</p>
+      <h1>
+        {user.firstName} Pet{userPets.length > 1 && "'s"}
+      </h1>
+      <p>Click a pet to view pet details</p>
 
-      {pets.map(({img, id, name}) => (
-        <div key={id}>
-          <h4>Pet img here: {img}</h4>
-          <h2>{name}</h2>
-        </div>
-      ))}
+      <ul>
+        {userPets && userPets.map(({ id, name }) => (
+          <li onClick={setPet(id)} key={id}>
+            {name}
+          </li>
+        ))}
+      </ul>
       <button>Add Pet</button>
     </>
-  )
-}
+  );
+};
 
-export default AllPets
+export default AllPets;

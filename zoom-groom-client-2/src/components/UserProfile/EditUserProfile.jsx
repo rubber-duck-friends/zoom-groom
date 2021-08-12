@@ -1,40 +1,23 @@
-import { useParams } from "react-router-dom";
 import { useState } from "react";
 import TextInput from "../atom/TextInput";
-import PasswordInput from "../atom/PasswordInput";
+import NumberInput from "../atom/NumberInput";
+import editUser from "../../config/editUser";
 
-const initialUserState = {
-  name: "Jared",
-  email: "email@address.com",
-  img: "http://image.link",
-};
-
-const EditUserProfile = () => {
-  const { userId } = useParams();
-  const [user, setUser] = useState(initialUserState);
-  const [name, setName] = useState(user.name);
+const EditUserProfile = ({user, setUser}) => {
+  const [firstName, setFirstName] = useState(user.first_name);
+  const [lastName, setLastName] = useState(user.last_name);
   const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState('');
-  const [confPassword, setConfPassword] = useState('');
-  const [img, setImg] = useState(user.img);
+  const [phoneNumber, setPhoneNumber] = useState(user.phone_number);
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(password === confPassword){
-      setUser({
-        name,
-        email,
-        img,
-        password,
-      })
-    } else {
-      setUser({
-        name,
-        email,
-        img,
-      })
-    }
-    
+    editUser({
+      id: user.id,
+      firstName,
+      lastName,
+      email,
+      phoneNumber
+    }, setUser)
   }
 
   return (
@@ -42,15 +25,17 @@ const EditUserProfile = () => {
       <h1>Edit Page</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>{img}</p>
-          <button>Change Photo</button>
-        </div>
-        <div>
           <TextInput
-            name="Name"
-            value={name}
-            id="input-name"
-            updateValue={setName}
+            name="First Name"
+            value={firstName}
+            id="input-first-name"
+            updateValue={setFirstName}
+          />
+          <TextInput
+            name="Last Name"
+            value={lastName}
+            id="input-last-name"
+            updateValue={setLastName}
           />
           <TextInput
             name="Email"
@@ -58,17 +43,11 @@ const EditUserProfile = () => {
             id="input-email"
             updateValue={setEmail}
           />
-          <PasswordInput
-            name="Password"
-            value={password}
-            id="input-password"
-            updateValue={setPassword}
-          />
-          <PasswordInput
-            name="Confirm Password"
-            value={confPassword}
-            id="input-confirm-password"
-            updateValue={setConfPassword}
+          <NumberInput
+            name="Phone Number"
+            value={phoneNumber}
+            id="input-phone-number"
+            updateValue={setPhoneNumber}
           />
           <input type="submit" value="Submit" />
         </div>
