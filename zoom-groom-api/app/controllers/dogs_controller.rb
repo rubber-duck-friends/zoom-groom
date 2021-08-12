@@ -13,6 +13,7 @@ class DogsController < ApplicationController
     render json: @dog
   end
 
+  # GET /dogs/all/:id
   def show_dog_by_user
     @dogs = Dog.where(user_id: params[:id])
     render json: @dogs
