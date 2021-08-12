@@ -17,7 +17,7 @@ RSpec.describe "/dogs", type: :request do
   # Dog. As you add validations to Dog, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    skip(:name)
   }
 
   let(:invalid_attributes) {
