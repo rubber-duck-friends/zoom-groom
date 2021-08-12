@@ -1,13 +1,10 @@
 import api from "./api";
 
-const getUser = async (userID, setUser) => {
-  try {
+const getUser = async (userID, setUser = null) => {
+
   const { data } = await api.get(`/user/${userID}`);
+  if (setUser === null) return data[0]
   setUser(data[0]);
-  console.log(data[0])
-  } catch(error) {
-    console.log(error)
-  }
 };
 
 export default getUser;
