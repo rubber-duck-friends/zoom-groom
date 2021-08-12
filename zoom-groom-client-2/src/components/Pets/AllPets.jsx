@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom"
 import getPetByUser from "../../config/getPetByUser";
 
 const AllPets = ({ user, setPet }) => {
-  const userPets = getPetByUser(user.id);
+  const [userPets, setUserPets] = useState([])
+  const history = useHistory();
+  
+  
+  // if(!user) return null
+  useEffect(() => {
+    getPetByUser(user.id).then(pets => setUserPets(pets))
+  }, [user]);
+
 
   return (
     <>
@@ -17,7 +27,7 @@ const AllPets = ({ user, setPet }) => {
           </li>
         ))}
       </ul>
-      <button></button>
+      <button>Add Pet</button>
     </>
   );
 };
