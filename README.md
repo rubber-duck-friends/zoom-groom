@@ -23,6 +23,20 @@ Our back-end will be handled using [Ruby On Rails](https://rubyonrails.org/) in 
 
 The final live web app will have the client deployed to [Netlify](https://www.netlify.com/) and the back end deployed to [Heroku](https://id.heroku.com/login).
 
+### Libraries
+
+A number of libraries were used in the production of this application to make building and testing both ends as smooth as possible, and reducing spaghetti code in some areas.
+
+The calls to the back end of our app are made using 'axios', which allows us to create an instance of our api (found in config/api.jsx) which we can then reference each time we need to make a request. Additionally, the syntax axios provides is much cleaner than the syntax that fetch requests use.
+
+Because we are using JWTs as a form of user authentication, we have utilised 'jwt-decode' to import a function for decoding the JWT and allowing us to pull a user ID from it. This, in turn, lets us make an axios call using the ID from the JWT to find the matching user, and render content appropriately, such as the user's dogs.
+
+Having a visual indicator of load state is crucial to being able to show users that our app is processing their requests, such as when they are logging in. By using the 'svg-loaders-react' library, we were able to quickly and easily import an engaging loading indicator that we then attached to our load states for requests to the API. This saved us from having to write out extra CSS and streamlined the process of confirming a load state in a visually appealing way.
+
+For testing our front end, we have used Jest as well as the React Testing Library. Additionally, by using 'jest-dom', we can also access additional matcher methods designed with React testing in mind. Using these libraries together allows for the testing of React components by virtually rendering DOM nodes and using Jest assertations to test their render conditions.
+
+Our tests on the back end are written using the 'rspec' gem. This testing library is being used in place of the default 'minitest' gem due to our familiarity writing tests in rspec. Testing with this gem pertains to the database and the CRUD functionality of our API's models.
+
 ## Dataflow Diagram
 
 ![Data Flow Diagram](./docs/dfd.png)
