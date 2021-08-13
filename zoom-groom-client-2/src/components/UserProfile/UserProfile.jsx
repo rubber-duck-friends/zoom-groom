@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom"
+
 import { useState } from "react"
 
 const initialUserState = {
@@ -14,7 +14,6 @@ const initialUserState = {
 }
 
 const UserProfile = () => {
-  const { userId } = useParams()
   const [user, setUser] = useState(initialUserState)
   
   const {name, description, pets, img} = user;
@@ -28,7 +27,7 @@ const UserProfile = () => {
         <button>Edit Profile</button>
       </div>
       <div>
-        <h1>{name}</h1>
+        <h1 data-testid="user-name">{name}</h1>
         <p>{description}</p>
         <div>
           <h5>{name}{pets.length > 1 && "'s"} Pet{pets.length > 1 && "s"}</h5>

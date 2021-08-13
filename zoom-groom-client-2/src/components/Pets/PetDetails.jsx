@@ -5,37 +5,45 @@ import PlaceholderDogImage from "../../assets/placeholder-images/default-dog.png
 import getPet from "../../config/getPet";
 import deletePet from "../../config/deletePet";
 
-const PetDetails = () => {
+const PetDetails = ({dog, user}) => {
   const [pet, setPet] = useState({});
   const [error, setError] = useState("");
-  const { id, userId } = useParams();
   const history = useHistory();
 
   useEffect(() => {
-    try {
-      setPet(getPet(id));
-    } catch (error) {
-      setError(error.message);
-    }
-  }, [id]);
+    getPet(dog).then(i => {
+      setPet(
+        {
+          name: i.name,
+          sex: i.sex,
+          age: i.age,
+          breed: i.breed,
+          fixed: i.fixed,
+        }
+      )
+    })
+  }, [dog]);
+
+  const removePet = () => {
+    deletePet(user.id, setError, history)
+  }
 
   return (
     <>
       <BackButton></BackButton>
       {error && <p>{error}</p>}
       <h1>About Pet</h1>
-      <img src={PlaceholderDogImage} width="200px" alt="Placeholder-Dog"></img>
       <div>
         <p>NAME: {pet && pet.name}</p>
         <p>SEX: {pet && pet.sex}</p>
         <p>BREED: {pet && pet.breed}</p>
         <p>AGE: {pet && pet.age}</p>
-        <p>FIXED: {pet && pet.fixed}</p>
+        <p>FIXED: {pet && pet.fixed ? "True" : "False"}</p>
       </div>
       <div>
-        <Link to={`/user/${userId}/pet/${id}/edit`}>Edit Pet</Link>
+        <Link to={`/pet/edit`}>Edit Pet</Link>
         <button 
-          onClick={deletePet(id, setError, history)}
+          onClick={removePet}
         >Remove Pet</button>
       </div>
     </>

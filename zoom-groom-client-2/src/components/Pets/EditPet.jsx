@@ -1,60 +1,51 @@
-import {useParams} from "react-router-dom"
-import {useState} from "react"
+import {useState, useEffect} from "react"
+import { useHistory } from 'react-router-dom'
+
 import TextInput from "../atom/TextInput"
 import CheckboxInput from "../atom/CheckboxInput"
+import DateInput from "../atom/DateInput"
+import getPet from "../../config/getPet"
+import editPet from "../../config/editPet"
 
-const initialPetState = {
-  name: "pet1",
-  age: 6,
-  breed: "Shiba Inu",
-  sex: "Male",
-  fixed: false,
-  img: "http://image.link",
-  notes: ""
-}
+const EditPet = ({pet}) => {
+  // const [pet, setPet] = useState(initialPetState)
+  const [name, setName] = useState("")
+  const [age, setAge] = useState(null)
+  const [breed, setBreed] = useState("")
+  const [sex, setSex] = useState("")
+  const [fixed, setFixed] = useState(null)
 
-const EditPet = () => {
-  const { userId, id } = useParams()
-  const [pet, setPet] = useState(initialPetState)
+  const history = useHistory()
 
-  const [name, setName] = useState(pet.name)
-  const [age, setAge] = useState(pet.age)
-  const [breed, setBreed] = useState(pet.breed)
-  const [sex, setSex] = useState(pet.sex)
-  const [fixed, setFixed] = useState(pet.fixed)
-  const [image, setImage] = useState(pet.img)
-  const [notes, setNotes] = useState(pet.notes)
+  useEffect(() => {
+    getPet(pet).then(dog => {
+      setName(dog.name)
+      setAge(dog.age)
+      setBreed(dog.breed)
+      setSex(dog.sex)
+      setFixed(dog.fixed)
+    })
+  }, [pet]);
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setPet({
-      name,
-      age,
-      breed,
-      sex,
-      fixed,
-      img: image,
-      notes
-    })
-    // api call (pet{})
+    editPet(pet, name, age, sex, fixed, breed)
+      .then(history.push("/pets"))
+      .catch(err => console.log("Error", err))
   }
 
   return(
     <>
       <h1>Edit {name}</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <p>image goes here: {image}</p>
-          <button>Change Photo</button>
-        </div>
-        <div>
+        
           <TextInput 
             name="Name" 
             value={name}
             id="input-name"
             updateValue={setName}
           />
-          <TextInput 
+          <DateInput 
             name="Age" 
             value={age}
             id="input-age"
@@ -80,14 +71,7 @@ const EditPet = () => {
             updateValue={setFixed}
           />
           
-          <TextInput
-            name="Notes"
-            value={notes}
-            id="input-notes"
-            updateValue={setNotes}
-          />
           <input type="submit" />
-        </div>
       </form>
     </>
   )

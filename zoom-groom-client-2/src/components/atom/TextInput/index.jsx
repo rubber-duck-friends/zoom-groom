@@ -14,6 +14,7 @@ const TextInput = ({id, value, name, updateValue}) => {
         value={value}
         id={id}
         onChange={handleChange}
+        data-testid="text-box-input"
       />
     </label>
   );

@@ -13,6 +13,18 @@ class AppointmentsController < ApplicationController
     render json: @appointment
   end
 
+  # GET /appointments/:id
+  def show_by_user
+    @appointments = Appointment.where(user_id: params[:id])
+    render json: @appointments
+  end
+
+  # GET /appointments/dog/:dog_id
+  def show_by_user
+    @appointments = Appointment.where(dog_id: params[:dog_id])
+    render json: @appointments
+  end
+
   # POST /appointments
   def create
     @appointment = Appointment.new(appointment_params)
