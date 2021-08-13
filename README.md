@@ -39,6 +39,11 @@ For testing our front end, we have used Jest as well as the React Testing Librar
 
 Our tests on the back end are written using the 'rspec' gem. This testing library is being used in place of the default 'minitest' gem due to our familiarity writing tests in rspec. Testing with this gem pertains to the database and the CRUD functionality of our API's models.
 
+## User Testing
+
+[User and Prod tests from Jack Dixon](https://docs.google.com/spreadsheets/d/1LZBTX2cCL0ZG8eUqj0TyRbtU21Zwv6KUv-4RKRTRnfM/edit?usp=sharing)
+[User and Prod tests from Aidan Kirvan](https://docs.google.com/spreadsheets/d/1KrVRLyI4Fi3VTtLfZm8KeSo0o7Rpgw4dcg2Br1tsqcY/edit?usp=sharing)
+
 ## Dataflow Diagram
 
 ![Data Flow Diagram](./docs/dfd.png)
@@ -163,6 +168,3 @@ You can find the link to the project board [here](https://trello.com/b/NAcI5WoQ/
 ![Trello Board August 12 (1/2)](./docs/trello-august-12.png)
 ![Trello Board August 12 (2/2)](./docs/trello-august-12(2).png)
 
-## User Testing
-
-[User and Prod tests from Jack Dixon](https://docs.google.com/spreadsheets/d/1LZBTX2cCL0ZG8eUqj0TyRbtU21Zwv6KUv-4RKRTRnfM/edit?usp=sharing) 
